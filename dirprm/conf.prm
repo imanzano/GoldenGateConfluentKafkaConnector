@@ -1,0 +1,9 @@
+REPLICAT conf
+-- Trail file for this example is located in "AdapterExamples/trail" directory
+-- Command to add REPLICAT
+-- add replicat conf, exttrail AdapterExamples/trail/tr NODBCHECKPOINT
+TARGETDB LIBFILE libggjava.so SET property=dirprm/conf.props
+REPORTCOUNT EVERY 1 MINUTES, RATE
+GROUPTRANSOPS 1000
+MAP QASOURCE.*, TARGET QASOURCE.*;
+

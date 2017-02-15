@@ -1,0 +1,35 @@
+
+gg.handlerlist=confluent
+
+#The handler properties
+gg.handler.confluent.type=oracle.goldengate.kafkaconnect.KafkaConnectHandler
+gg.handler.confluent.kafkaProducerConfigFile=confluent.properties
+gg.handler.confluent.mode=tx
+gg.handler.confluent.sourceRecordGeneratorClass=oracle.goldengate.kafkaconnect.DefaultSourceRecordGenerator
+
+#The formatter properties
+gg.handler.confluent.format=oracle.goldengate.kafkaconnect.formatter.KafkaConnectFormatter
+gg.handler.confluent.format.insertOpKey=I
+gg.handler.confluent.format.updateOpKey=U
+gg.handler.confluent.format.deleteOpKey=D
+gg.handler.confluent.format.treatAllColumnsAsStrings=false
+gg.handler.confluent.format.iso8601Format=false
+gg.handler.confluent.format.pkUpdateHandling=abend
+
+
+goldengate.userexit.timestamp=utc
+goldengate.userexit.writers=javawriter
+javawriter.stats.display=TRUE
+javawriter.stats.full=TRUE
+
+gg.log=log4j
+gg.log.level=INFO
+
+gg.report.time=30sec
+
+#Set the classpath here
+gg.classpath=/home/tbcampbe/NetBeansProjects/kafka-connect/target/confluent-lib/*:/ggwork/odcs_oggadp_dev3/oggadp_dev-main/ade/oggadp/Adapter/Java_src/ggplugins/formatters/target/*
+
+
+javawriter.bootoptions=-Xmx512m -Xms32m -Djava.class.path=.:ggjava/ggjava.jar:./dirprm
+
